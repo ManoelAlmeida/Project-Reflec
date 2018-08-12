@@ -1,8 +1,8 @@
 import file_reader
 import matplotlib.pyplot as plt
 
-normalized_experimental_table = file_reader.get_normalized_experimental_table("Celula 38.prn")
-experimental_table = file_reader.get_experimental_table("Celula 38.prn")
+normalized_experimental_table = file_reader.get_normalized_experimental_table("Celula_38.prn")
+experimental_table = file_reader.get_experimental_table("Celula_38.prn")
 
 x1_values = []
 y1_values = []

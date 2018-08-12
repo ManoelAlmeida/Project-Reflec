@@ -42,7 +42,7 @@ class PSO():
 
         self.save_convergence(err_best_g_list)
 
-        # print final results
+        # print final resultssquared_error
         print('Best position: ', pos_best_g)
         print('Best error: ', err_best_g)
 

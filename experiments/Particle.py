@@ -12,6 +12,7 @@ class Particle:
         global num_dimensions
         #num_dimensions = len(x0)
         num_dimensions = len(Configuration().dimensions)
+        print(num_dimensions)
 
         for i in range(0, num_dimensions):
             self.velocity.append(random.uniform(-1, 1))
