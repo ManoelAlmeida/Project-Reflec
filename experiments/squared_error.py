@@ -2,7 +2,6 @@ import file_reader
 import reflectance
 import cmath
 
-
 def get_error(file_path, wavelength, permittivity_real_2, permittivity_imag_2, permittivity_real_3,
                            permittivity_imag_3, permittivity_glass, thickness):
     experimental_data = file_reader.get_normalized_experimental_table(file_path)

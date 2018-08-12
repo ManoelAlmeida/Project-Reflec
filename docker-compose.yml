@@ -12,6 +12,19 @@ services:
       - "8080:8080"
     volumes:
       - ./api:/app
+
+  experiments:
+    container_name: experiments_project
+    build:
+      context: ./experiments
+      dockerfile: Dockerfile-up
+    command: tail -f /dev/null
+    working_dir: /exps
+    ports:
+      - "8989:8989"
+    volumes:
+      - ./experiments:/exps
+
   jupyter:
     build:
       context: ./jupyter

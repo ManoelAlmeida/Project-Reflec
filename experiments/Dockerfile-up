@@ -1,0 +1,10 @@
+FROM python:3.6.4
+
+RUN mkdir /exps
+WORKDIR /exps
+
+# INSTALL DEPENDENCIES
+COPY requirements.txt /exps
+RUN pip install -r requirements.txt
+
+EXPOSE 8989
