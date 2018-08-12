@@ -1,6 +1,7 @@
 import pandas as pd
+import random
 from PSO import PSO
-
+from utils import Configuration
 
 #Some functions
 def Sphere(x):
@@ -20,9 +21,4 @@ def read_file_test():
     print(df.head())
 
 
-read_file_test()
-
-#initial=[5,5]               # initial starting location [x1,x2...]
-#bounds=[(-10,10),(-10,10)]  # input bounds [(x1_min,x1_max),(x2_min,x2_max)...]
-#PSO(Rosenbrock,initial,bounds,num_particles=50,maxiter=8000)
-#Function, dimensions, bounds
+PSO(Sphere)

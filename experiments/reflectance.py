@@ -1,7 +1,6 @@
 import wavenumber
 import cmath
 
-
 def total_reflectance(angle, wavelength, permittivity_real_2, permittivity_imag_2, permittivity_real_3,
                       permittivity_imag_3,
                       permittivity_glass, thickness):
