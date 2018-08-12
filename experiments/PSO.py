@@ -31,6 +31,7 @@ class PSO():
 
             #Saving the best error values
             err_best_g_list.append(err_best_g)
+            print(err_best_g)
 
             # cycle through swarm and update velocities and position
             for j in range(0,Configuration().num_particles):
@@ -39,6 +40,7 @@ class PSO():
                 #swarm[j].update_position(bounds)
                 swarm[j].update_position()
             i+=1
+
 
         self.save_convergence(err_best_g_list)
 
