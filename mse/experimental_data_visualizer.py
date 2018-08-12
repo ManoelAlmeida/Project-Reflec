@@ -25,3 +25,5 @@ plt.plot(x2_values, y2_values)
 plt.xlabel("Angle")
 plt.ylabel("Reflectance")
 plt.show()
+
+print(len(x2_values))
