@@ -1,3 +1,3 @@
 # Reflectance project
 
-This is a collaboration project applied to solve some reflectance problems.
+This project is the application of the Particle Swarm Optimization (PSO) for optimizing the Reflectance parameters of some materials. 
