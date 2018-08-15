@@ -6,10 +6,10 @@ from utils import Configuration
 
 class PSO():
     def __init__(self,func_fitness):
-
         err_best_g=-1                   # best error for group
         pos_best_g=[]                   # best position for group
         err_best_g_list=[]
+        self.best_position = []
 
         # establish the swarm
         swarm=[]
@@ -47,7 +47,7 @@ class PSO():
         # print final resultssquared_error
         print('Best position: ', pos_best_g)
         print('Best error: ', err_best_g)
-
+        self.best_position = pos_best_g
     def save_convergence(self, error_list):
         with open("./results/error_list.txt", "w") as file:
             for r in error_list:
