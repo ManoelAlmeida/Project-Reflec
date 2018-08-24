@@ -12,7 +12,7 @@ class PSO():
         self.error_history = []
         self.dimensions = dimensions
         self.num_particles = num_particles
-        self.max_interations = max_iterations
+        self.max_iterations = max_iterations
 
         err_best_g=-1                   # best error for group
         pos_best_g=[]                   # best position for group
