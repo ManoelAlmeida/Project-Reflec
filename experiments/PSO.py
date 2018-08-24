@@ -3,14 +3,16 @@ import random
 import math
 import time
 from Particle import Particle
-from utils import Configuration
 
 class PSO():
-    def __init__(self,func_fitness):
+    def __init__(self,func_fitness, dimensions, num_particles, max_iterations):
         self.convergence_time = -1
         self.best_position = []
         self.best_error = -1
         self.error_history = []
+        self.dimensions = dimensions
+        self.num_particles = num_particles
+        self.max_interations = max_iterations
 
         err_best_g=-1                   # best error for group
         pos_best_g=[]                   # best position for group
@@ -20,15 +22,15 @@ class PSO():
 
         # establish the swarm
         swarm=[]
-        for i in range(0,Configuration().num_particles):
-            swarm.append(Particle())
+        for i in range(0,num_particles):
+            swarm.append(Particle(self.dimensions))
 
         # begin optimization loop
         i=0
-        while i < Configuration().max_iterations:
+        while i < self.max_iterations:
             #print i,err_best_g
             # cycle through particles in swarm and evaluate fitness
-            for j in range(0,Configuration().num_particles):
+            for j in range(0,self.num_particles):
                 swarm[j].evaluate(func_fitness)
 
                 # determine if current particle is the best (globally)
@@ -41,7 +43,7 @@ class PSO():
             self.error_history.append(err_best_g)
 
             # cycle through swarm and update velocities and position
-            for j in range(0,Configuration().num_particles):
+            for j in range(0,self.num_particles):
                 swarm[j].update_velocity_intertia(pos_best_g)
                 swarm[j].update_position()
             i+=1
