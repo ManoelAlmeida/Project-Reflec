@@ -49,6 +49,6 @@ class PSO():
             i+=1
 
         self.convergence_time = time.time() - start_time
-
+        self.best_error = err_best_g
         # update final results squared_error
         self.best_position = pos_best_g
