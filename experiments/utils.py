@@ -6,5 +6,5 @@ class Configuration():
         #self.dimensions = [(-100, 100), (-50, 50), (-250, 250), (-150, 150)]
         self.dimensions = [(-60.261, -27.833),(-9.4685,1.95),(500,2500)]
 
-        self.num_particles = 2
-        self.max_iterations = 10
+        self.num_particles = 50
+        self.max_iterations = 1000
