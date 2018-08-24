@@ -7,13 +7,17 @@ from utils import Configuration
 
 class PSO():
     def __init__(self,func_fitness):
+        self.convergence_time = -1
+        self.best_position = []
+        self.best_error = -1
+        self.error_history = []
+
         err_best_g=-1                   # best error for group
         pos_best_g=[]                   # best position for group
         err_best_g_list=[]
-        self.best_position = []
 
         start_time = time.time()
-        result=[]
+
         # establish the swarm
         swarm=[]
         for i in range(0,Configuration().num_particles):
@@ -34,30 +38,15 @@ class PSO():
 
             #Saving the best error values
             err_best_g_list.append(err_best_g)
-            result.append(','.join(str(e) for e in  swarm[j].position) + ',' + str(err_best_g))
-            print(err_best_g)
+            self.error_history.append(err_best_g)
 
             # cycle through swarm and update velocities and position
             for j in range(0,Configuration().num_particles):
                 swarm[j].update_velocity_intertia(pos_best_g)
-                #swarm[j].update_velocity_clerc(pos_best_g)
-                #swarm[j].update_position(bounds)
                 swarm[j].update_position()
             i+=1
 
-        result.append(time.time() - start_time)
-        #self.save_convergence(err_best_g_list)
-        self.save_convergence(result)
+        self.convergence_time = time.time() - start_time
 
-        # print final resultssquared_error
-        print('Best position: ', pos_best_g)
-        print('Best error: ', err_best_g)
+        # update final results squared_error
         self.best_position = pos_best_g
-
-    def save_convergence(self, error_list):
-        with open("./results/error_list_particles_"
-                  +str(Configuration().num_particles)+
-                  "_iterations_"+str(Configuration().max_iterations)+".txt", "w") as file:
-            for r in error_list:
-                file.write(str(r))
-                file.write('\n')
