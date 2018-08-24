@@ -1,8 +1,8 @@
 import random
-from utils import Configuration
 
 class Particle:
-    def __init__(self):
+    def __init__(self, dimensions):
+        self.dimensions = dimensions
         self.position = []  # particle position
         self.velocity = []  # particle velocity
         self.pos_best = []  # best position individual
@@ -11,12 +11,12 @@ class Particle:
 
         global num_dimensions
         #num_dimensions = len(x0)
-        num_dimensions = len(Configuration().dimensions)
+        num_dimensions = len(self.dimensions)
 
         for i in range(0, num_dimensions):
             self.velocity.append(random.uniform(-1, 1))
-            self.position.append(random.uniform(min(Configuration().dimensions[i]),
-                                                max(Configuration().dimensions[i])))
+            self.position.append(random.uniform(min(self.dimensions[i]),
+                                                max(self.dimensions[i])))
             #self.position.append(x0[i])
 
     # evaluate current fitness
@@ -60,9 +60,9 @@ class Particle:
             self.position[i] = self.position[i] + self.velocity[i]
 
             # adjust maximum position if necessary
-            if self.position[i] > max(Configuration().dimensions[i]):
-                self.position[i] = max(Configuration().dimensions[i])
+            if self.position[i] > max(self.dimensions[i]):
+                self.position[i] = max(self.dimensions[i])
 
             # adjust minimum position if neseccary
-            if self.position[i] < min(Configuration().dimensions[i]):
-                self.position[i] = min(Configuration().dimensions[i])
+            if self.position[i] < min(self.dimensions[i]):
+                self.position[i] = min(self.dimensions[i])
