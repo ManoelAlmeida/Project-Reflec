@@ -23,8 +23,11 @@ def Exec1():
 
     return Error
 
+dimensions = [(-60.261, -27.833),(-9.4685,1.95),(500,2500)]
+num_particles = 20
+max_iterations = 100
 
-P = PSO(Exec1().get_error)
+P = PSO(Exec1().get_error, dimensions, num_particles, max_iterations)
 p_real_3, p_imag_3, th = P.best_position
 
 for elem in table:
