@@ -44,7 +44,8 @@ class PSO():
 
             # cycle through swarm and update velocities and position
             for j in range(0,self.num_particles):
-                swarm[j].update_velocity_intertia(pos_best_g)
+                #swarm[j].update_velocity_intertia(pos_best_g)
+                swarm[j].update_velocity_clerc(pos_best_g)
                 swarm[j].update_position()
             i+=1
 

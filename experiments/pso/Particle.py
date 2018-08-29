@@ -41,14 +41,18 @@ class Particle:
 
     # update new particle velocity - clerc
     def update_velocity_clerc(self, pos_best_g):
-        c_fac = 0.7298
+        c_fac = 0.729
+        c1 = 2.04  # cognative constant
+        c2 = 2.04  # social constant
 
         for i in range(0, num_dimensions):
             r1 = random.random()
             r2 = random.random()
 
             vel = c_fac * (
-            (self.velocity[i] + r1) * (self.pos_best[i] - self.position[i]) + (r2 * (pos_best_g[i] - self.position[i])))
+               (self.velocity[i] + r1 * c1 * (self.pos_best[i] - self.position[i])) +
+               (r2 * c2 * (pos_best_g[i] - self.position[i])))
+
             self.velocity[i] = vel
 
     # update the particle position based off new velocity updates

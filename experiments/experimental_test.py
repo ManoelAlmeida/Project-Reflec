@@ -18,8 +18,8 @@ def Exec1():
 dimensions = [(-60.261, -27.833), (-9.4685, 1.95), (500, 2500)]
 
 # The two variables that you need to change for the tests
-num_particles = 10
-max_iterations = 100
+num_particles = 50
+max_iterations = 10
 
 P = PSO(Exec1().get_error, dimensions, num_particles, max_iterations)
 p_real_3, p_imag_3, th = P.best_position
